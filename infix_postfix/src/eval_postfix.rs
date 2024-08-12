@@ -1,11 +1,9 @@
 use crate::operators::get_op_precedence;
 
-pub fn eval_postfix(postfix: &String) -> Option<f32> {
+pub fn eval_postfix(postfix: &Vec<String>) -> Option<f32> {
     let mut stack = Vec::new();
 
-    let chars = postfix.split("");
-
-    for char in chars {
+    for char in postfix {
         let is_operator = get_op_precedence(char) != 0;
 
         if is_operator {
